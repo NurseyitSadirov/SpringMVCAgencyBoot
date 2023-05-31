@@ -50,7 +50,7 @@ public class BookingApi {
 
     }
 
-    @DeleteMapping("/{bookingId}/delete")
+    @PostMapping("/{bookingId}/delete")
     public String deleteBooking(@PathVariable Long bookingId,
                                 @PathVariable Long id) {
         bookingSe.deleteBookingById(bookingId);
