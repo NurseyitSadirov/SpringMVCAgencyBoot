@@ -18,7 +18,7 @@ public class AgencyApi {
     @GetMapping
     public String getAllAgency(Model model) {
         model.addAttribute("agencies", agencySe.getAllAgency());
-        return "agency/agenciess";
+        return "agency/agencies";
     }
 
     @GetMapping("/new")
