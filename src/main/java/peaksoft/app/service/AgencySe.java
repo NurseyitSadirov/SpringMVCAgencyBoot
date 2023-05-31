@@ -12,7 +12,6 @@ public interface AgencySe {
     Agency getAgencyById(Long id);
     void update(Long id, Agency agency);
     String deleteAgencyById(Long id);
-//    List<Agency> search (String word);
-//    List<House> getAllHouseToAgency(Long agencyId);
+
 
 }

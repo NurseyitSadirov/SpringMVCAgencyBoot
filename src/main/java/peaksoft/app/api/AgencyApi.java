@@ -1,6 +1,6 @@
 package peaksoft.app.api;
 
-import lombok.AllArgsConstructor;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +10,10 @@ import peaksoft.app.service.AgencySe;
 
 @Controller
 @RequestMapping("/agencies")
-//@RequiredArgsConstructor
-//TODO
+@RequiredArgsConstructor
 public class AgencyApi {
 
-    private  AgencySe agencySe;
+    private final AgencySe agencySe;
 
     @GetMapping
     public String getAllAgency(Model model) {
@@ -36,7 +35,6 @@ public class AgencyApi {
 
     @PostMapping("{id}/delete")
     public String deleteAgency(@PathVariable Long id) {
-        //TODO REQUEST PARAM
         agencySe.deleteAgencyById(id);
         return "redirect:/agencies";
     }
@@ -59,20 +57,6 @@ public class AgencyApi {
         agencySe.update(id, agency);
         return "redirect:/agencies";
 
-        //TODO PUT VS PATCH MAPPING
     }
-//
-//    @GetMapping("/search")
-//    public String search(@RequestParam("search") String search,Model model){
-//        model.addAttribute("searching",agencySe.search(search));
-//        return "agency/searchPage";
-//    }
-//
-//    @GetMapping("/getAgency/{agencyId}")
-//    public String resultSearching(@PathVariable Long agencyId,Model model){
-//        model.addAttribute("houseList",agencySe.getAllHouseToAgency(agencyId));
-//        return "agency/newPageforSearch";
-//
-//    }
 
 }

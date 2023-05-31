@@ -30,9 +30,7 @@ public class AgencySeImpl implements AgencySe {
 
     @Override
     public Agency getAgencyById(Long id) {
-        Agency agency = agencyRe.findById(id).get();
-        //ADD NOT FOUND
-        return agency;
+        return agencyRe.findById(id).orElseThrow(()->new RuntimeException("With is id: " +id+" not found"));
     }
 
     @Override
@@ -40,7 +38,6 @@ public class AgencySeImpl implements AgencySe {
         Agency agency1 = agencyRe.findById(id).
                 orElseThrow(()-> new RuntimeException("Agency with id: " +id+ "not found"));
         agency1.setName(agency.getName());
-        //TODO UPDATE NOT SAME VALUES
         agency1.setCountry(agency.getCountry());
         agency1.setPhoneNumber(agency.getPhoneNumber());
         agency1.setEmail(agency.getEmail());
@@ -58,6 +55,8 @@ public class AgencySeImpl implements AgencySe {
         return "Agency with id: " + id+ "is deleted";
 
     }
+
+
 
 
 }

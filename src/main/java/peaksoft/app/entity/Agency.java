@@ -26,10 +26,10 @@ public class Agency {
     @Column(length = 10000000)
     private String image_Link;
 
-    @ManyToMany(mappedBy = "agencies",cascade = ALL)
+    @ManyToMany(mappedBy = "agencies",cascade = ALL,fetch = FetchType.EAGER)
     private List<Customer> customers;
 
-    @OneToMany(mappedBy = "agencies",cascade = ALL)
+    @OneToMany(mappedBy = "agencies",cascade = ALL,fetch = FetchType.EAGER)
     private List<House> house;
 
     public Agency(String name, String country, String phoneNumber, String email,String image_Link) {
